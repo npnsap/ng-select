@@ -80,15 +80,14 @@
       "prefix": "",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/demo",
             "index": "src/demo/index.html",
-            "browser": "src/demo/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "main": "src/demo/main.ts",
+            "polyfills": "src/demo/polyfills.ts",
             "tsConfig": "src/demo/tsconfig.app.json",
+            "deployUrl": "/ng-select/",
             "assets": [
               "src/demo/favicon.ico",
               "src/demo/assets"
@@ -96,7 +95,13 @@
             "styles": [
               "src/demo/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -106,7 +111,13 @@
                   "with": "src/demo/environments/environment.prod.ts"
                 }
               ],
+              "optimization": true,
               "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -115,7 +126,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "100kb"
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -124,11 +135,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "demo:build"
+            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "demo:build:production"
+              "browserTarget": "demo:build:production"
             }
           }
         }
