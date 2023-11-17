@@ -22,7 +22,6 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "jsdoc/newline-after-description": "off",
         "@angular-eslint/no-output-rename": "off",
         "@angular-eslint/no-output-native": "off",
         "@angular-eslint/component-selector": [
@@ -46,7 +45,7 @@
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/semi": "off",
-        "indent": "off",
+        "indent": "error",
         "no-underscore-dangle": "off",
         "prefer-arrow/prefer-arrow-functions": "off",
         "spaced-comment": "error",
